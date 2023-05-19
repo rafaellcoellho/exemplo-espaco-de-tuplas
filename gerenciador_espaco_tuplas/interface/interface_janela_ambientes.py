@@ -1,0 +1,86 @@
+import tkinter
+
+
+class InterfaceJanelaAmbientes(tkinter.Frame):
+    def __init__(self, janela: tkinter.Toplevel):
+        super().__init__(janela)
+        self.grid(row=0, column=0, padx=10, pady=10)
+
+        # self.frame_janela_ambientes: tkinter.Frame = tkinter.Frame(self)
+        # self.frame_janela_ambientes.grid(row=0, column=0, padx=10, pady=10)
+        # self.frame_janela_ambientes.grid_columnconfigure(0, weight=1)
+        # self.frame_janela_ambientes.grid_columnconfigure(1, weight=1)
+
+        self.frame_gerenciador_usuarios: tkinter.LabelFrame = tkinter.LabelFrame(
+            self,
+            text="Usuários",
+        )
+        self.mostrador_de_usuarios: tkinter.Listbox = tkinter.Listbox(
+            self.frame_gerenciador_usuarios,
+        )
+        self.botao_mover_usuario_para_ambiente: tkinter.Button = tkinter.Button(
+            self.frame_gerenciador_usuarios,
+            text="Mover",
+            command=self._mover_usuario_para_ambiente,
+        )
+        self.botao_excluir_usuario: tkinter.Button = tkinter.Button(
+            self.frame_gerenciador_usuarios,
+            text="Excluir",
+            command=self._excluir_usuario,
+        )
+        self._configurar_interface_gerenciador_usuarios()
+
+        self.frame_gerenciador_dispositivos: tkinter.LabelFrame = tkinter.LabelFrame(
+            self,
+            text="Dispositivos",
+        )
+        self.mostrador_de_dispositivos: tkinter.Listbox = tkinter.Listbox(
+            self.frame_gerenciador_dispositivos,
+        )
+        self.botao_mover_dispositivo_para_ambiente: tkinter.Button = tkinter.Button(
+            self.frame_gerenciador_dispositivos,
+            text="Mover",
+            command=self._mover_dispositivo_para_ambiente,
+        )
+        self.botao_excluir_dispositivo: tkinter.Button = tkinter.Button(
+            self.frame_gerenciador_dispositivos,
+            text="Excluir",
+            command=self._excluir_dispositivo,
+        )
+        self._configurar_interface_gerenciador_dispositivos()
+
+    def _configurar_interface_gerenciador_usuarios(self):
+        self.frame_gerenciador_usuarios.grid(row=0, column=0)
+        self.frame_gerenciador_usuarios.grid_columnconfigure(0, weight=1)
+        self.frame_gerenciador_usuarios.grid_columnconfigure(1, weight=1)
+
+        self.mostrador_de_usuarios.grid(
+            row=0, column=0, columnspan=2, sticky=tkinter.EW
+        )
+        self.botao_mover_usuario_para_ambiente.grid(row=1, column=0, sticky=tkinter.EW)
+        self.botao_excluir_usuario.grid(row=1, column=1, sticky=tkinter.EW)
+
+    def _configurar_interface_gerenciador_dispositivos(self):
+        self.frame_gerenciador_dispositivos.grid(row=0, column=1)
+        self.frame_gerenciador_dispositivos.grid_columnconfigure(0, weight=1)
+        self.frame_gerenciador_dispositivos.grid_columnconfigure(1, weight=1)
+
+        self.mostrador_de_dispositivos.grid(
+            row=0, column=0, columnspan=2, sticky=tkinter.EW
+        )
+        self.botao_mover_dispositivo_para_ambiente.grid(
+            row=1, column=0, sticky=tkinter.EW
+        )
+        self.botao_excluir_dispositivo.grid(row=1, column=1, sticky=tkinter.EW)
+
+    def _mover_usuario_para_ambiente(self):
+        pass
+
+    def _excluir_usuario(self):
+        pass
+
+    def _mover_dispositivo_para_ambiente(self):
+        pass
+
+    def _excluir_dispositivo(self):
+        pass
