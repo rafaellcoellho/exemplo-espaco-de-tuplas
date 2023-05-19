@@ -24,12 +24,10 @@ class InterfaceGerenciadorAmbientes(tkinter.LabelFrame):
         self._configurar_interface_adicionar_novo_ambiente()
 
         self.frame_mostrador_de_ambientes: tkinter.Frame = tkinter.Frame(
-            self.frame_gerenciador_ambientes
+            self.frame_gerenciador_ambientes,
         )
         self.mostrador_de_ambientes: tkinter.Listbox = tkinter.Listbox(
             self.frame_mostrador_de_ambientes,
-            height=10,
-            width=40,
         )
         self.botao_ver_ambiente_selecionado: tkinter.Button = tkinter.Button(
             self.frame_mostrador_de_ambientes,
@@ -45,18 +43,22 @@ class InterfaceGerenciadorAmbientes(tkinter.LabelFrame):
 
     def _configurar_interface_adicionar_novo_ambiente(self):
         self.frame_adicionar_ambiente.grid(row=0, column=0)
-        self.entrada_nome_novo_ambiente.grid(row=0, column=0, padx=5, sticky=tkinter.W)
-        self.botao_adicionar_novo_ambiente.grid(row=0, column=1, sticky=tkinter.E)
+        self.frame_adicionar_ambiente.grid_columnconfigure(0, weight=1)
+
+        self.entrada_nome_novo_ambiente.grid(row=0, column=0)
+        self.botao_adicionar_novo_ambiente.grid(row=0, column=1)
 
     def _configurar_interface_mostrador_de_ambientes(self):
         self.frame_mostrador_de_ambientes.grid(row=1, column=0, sticky=tkinter.EW)
-        self.mostrador_de_ambientes.grid(row=0, column=0, columnspan=2, pady=5, padx=5)
-        self.botao_ver_ambiente_selecionado.grid(
-            row=1, column=0, padx=5, sticky=tkinter.EW
+        self.frame_mostrador_de_ambientes.grid_rowconfigure(0, weight=1)
+        self.frame_mostrador_de_ambientes.grid_columnconfigure(0, weight=1)
+        self.frame_mostrador_de_ambientes.grid_columnconfigure(1, weight=1)
+
+        self.mostrador_de_ambientes.grid(
+            row=0, column=0, columnspan=2, sticky=tkinter.EW
         )
-        self.botao_excluir_ambiente_selecionado.grid(
-            row=1, column=1, pady=5, sticky=tkinter.EW
-        )
+        self.botao_ver_ambiente_selecionado.grid(row=1, column=0, sticky=tkinter.EW)
+        self.botao_excluir_ambiente_selecionado.grid(row=1, column=1, sticky=tkinter.EW)
 
     def _adicionar_ambiente(self):
         nome_novo_ambiente: str = self.entrada_nome_novo_ambiente.get()
