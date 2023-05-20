@@ -1,13 +1,20 @@
 import tkinter
 
+from gerenciador_espaco_tuplas.interface.interface_janela_mensagens_de_usuario import (
+    InterfaceJanelaMensagensDeUsuario,
+)
 
-class InterfaceJanelaAmbientes(tkinter.Frame):
-    def __init__(self, janela: tkinter.Toplevel):
-        super().__init__(janela)
-        self.grid(row=0, column=0, padx=10, pady=10)
+
+class InterfaceJanelaAmbientes(tkinter.Toplevel):
+    def __init__(self):
+        super().__init__()
+        self.title("Ambiente")
+
+        self.interface_janela: tkinter.Frame = tkinter.Frame(self)
+        self.interface_janela.grid(row=0, column=0, padx=10, pady=10)
 
         self.frame_gerenciador_usuarios: tkinter.LabelFrame = tkinter.LabelFrame(
-            self,
+            self.interface_janela,
             text="Usuários",
         )
         self.mostrador_de_usuarios: tkinter.Listbox = tkinter.Listbox(
@@ -31,7 +38,7 @@ class InterfaceJanelaAmbientes(tkinter.Frame):
         self._configurar_interface_gerenciador_usuarios()
 
         self.frame_gerenciador_dispositivos: tkinter.LabelFrame = tkinter.LabelFrame(
-            self,
+            self.interface_janela,
             text="Dispositivos",
         )
         self.mostrador_de_dispositivos: tkinter.Listbox = tkinter.Listbox(
@@ -76,7 +83,9 @@ class InterfaceJanelaAmbientes(tkinter.Frame):
         self.botao_excluir_dispositivo.grid(row=1, column=1, sticky=tkinter.EW)
 
     def _ver_mensagens_do_usuario(self):
-        pass
+        ambiente_selecionado: str = self.mostrador_de_usuarios.curselection()
+        InterfaceJanelaMensagensDeUsuario()
+        print(ambiente_selecionado)
 
     def _mover_usuario_para_ambiente(self):
         pass
