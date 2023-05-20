@@ -3,6 +3,9 @@ import tkinter
 from gerenciador_espaco_tuplas.interface_grafica.janelas.chat import (
     JanelaDeChat,
 )
+from gerenciador_espaco_tuplas.interface_grafica.janelas.mover_entre_ambientes import (
+    JanelaMoverEntreAmbientes,
+)
 
 
 class JanelaDeAmbiente(tkinter.Toplevel):
@@ -83,18 +86,22 @@ class JanelaDeAmbiente(tkinter.Toplevel):
         self.botao_excluir_dispositivo.grid(row=1, column=1, sticky=tkinter.EW)
 
     def _ver_mensagens_do_usuario(self):
-        ambiente_selecionado: str = self.mostrador_de_usuarios.curselection()
+        usuario_selecionado: str = self.mostrador_de_usuarios.curselection()
         JanelaDeChat()
-        print(ambiente_selecionado)
+        print(usuario_selecionado)
 
     def _mover_usuario_para_ambiente(self):
-        pass
+        usuario_selecionado: str = self.mostrador_de_usuarios.curselection()
+        JanelaMoverEntreAmbientes()
+        print(usuario_selecionado)
 
     def _excluir_usuario(self):
         pass
 
     def _mover_dispositivo_para_ambiente(self):
-        pass
+        dispositivo_selecionado: str = self.mostrador_de_dispositivos.curselection()
+        JanelaMoverEntreAmbientes()
+        print(dispositivo_selecionado)
 
     def _excluir_dispositivo(self):
         pass
