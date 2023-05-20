@@ -2,10 +2,10 @@ import tkinter
 from tkinter import ttk
 
 
-class InterfaceJanelaMensagensDeUsuario(tkinter.Toplevel):
+class JanelaDeChat(tkinter.Toplevel):
     def __init__(self):
         super().__init__()
-        self.title("Usuário")
+        self.title("Chat")
 
         self.interface_janela: tkinter.Frame = tkinter.Frame(self)
         self.interface_janela.grid(row=0, column=0, padx=10, pady=10)

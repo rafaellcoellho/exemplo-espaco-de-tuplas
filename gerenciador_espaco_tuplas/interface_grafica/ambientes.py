@@ -1,12 +1,12 @@
 import tkinter
 from tkinter import messagebox
 
-from gerenciador_espaco_tuplas.interface.interface_janela_ambientes import (
-    InterfaceJanelaAmbientes,
+from gerenciador_espaco_tuplas.interface_grafica.janelas.ambiente import (
+    JanelaDeAmbiente,
 )
 
 
-class InterfaceGerenciadorAmbientes(tkinter.LabelFrame):
+class InterfaceGerenciadorDeAmbientes(tkinter.LabelFrame):
     def __init__(self, frame_pai: tkinter.Frame):
         super().__init__(frame_pai, text="Gerenciador de Ambientes")
 
@@ -76,7 +76,7 @@ class InterfaceGerenciadorAmbientes(tkinter.LabelFrame):
 
     def _ver_ambiente_selecionado(self):
         ambiente_selecionado: str = self.mostrador_de_ambientes.curselection()
-        InterfaceJanelaAmbientes()
+        JanelaDeAmbiente()
         print(ambiente_selecionado)
 
     def _excluir_ambiente_selecionado(self):

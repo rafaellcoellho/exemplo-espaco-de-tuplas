@@ -1,11 +1,11 @@
 import tkinter
 
-from gerenciador_espaco_tuplas.interface.interface_janela_mensagens_de_usuario import (
-    InterfaceJanelaMensagensDeUsuario,
+from gerenciador_espaco_tuplas.interface_grafica.janelas.chat import (
+    JanelaDeChat,
 )
 
 
-class InterfaceJanelaAmbientes(tkinter.Toplevel):
+class JanelaDeAmbiente(tkinter.Toplevel):
     def __init__(self):
         super().__init__()
         self.title("Ambiente")
@@ -84,7 +84,7 @@ class InterfaceJanelaAmbientes(tkinter.Toplevel):
 
     def _ver_mensagens_do_usuario(self):
         ambiente_selecionado: str = self.mostrador_de_usuarios.curselection()
-        InterfaceJanelaMensagensDeUsuario()
+        JanelaDeChat()
         print(ambiente_selecionado)
 
     def _mover_usuario_para_ambiente(self):

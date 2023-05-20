@@ -1,7 +1,7 @@
 import tkinter
 
-from gerenciador_espaco_tuplas.interface.interface_gerenciador_ambientes import (
-    InterfaceGerenciadorAmbientes,
+from gerenciador_espaco_tuplas.interface_grafica.ambientes import (
+    InterfaceGerenciadorDeAmbientes,
 )
 
 
@@ -14,8 +14,8 @@ class GerenciadorEspacoTuplas:
             self.motor_interface_grafica
         )
 
-        self.interface_gerenciador_ambientes: InterfaceGerenciadorAmbientes = (
-            InterfaceGerenciadorAmbientes(
+        self.interface_gerenciador_ambientes: InterfaceGerenciadorDeAmbientes = (
+            InterfaceGerenciadorDeAmbientes(
                 frame_pai=self.frame_gerenciador_espaco_tuplas,
             )
         )
