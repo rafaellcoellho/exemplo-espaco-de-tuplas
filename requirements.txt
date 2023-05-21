@@ -1,0 +1,2 @@
+linsimpy @ git+https://github.com/rafaellcoellho/linsimpy.git@dc9f9184eb40aa2f794baac9c7f14924b88e6456
+simpy==4.0.1
