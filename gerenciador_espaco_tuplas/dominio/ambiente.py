@@ -2,7 +2,7 @@ import uuid
 from typing import List, Union
 
 from gerenciador_espaco_tuplas.dominio.dispositivo import Dispositivo
-from gerenciador_espaco_tuplas.dominio.excecoes import ItemInvalido
+from gerenciador_espaco_tuplas.dominio.excecoes import EntidadeInvalida
 from gerenciador_espaco_tuplas.dominio.nome import Nome
 from gerenciador_espaco_tuplas.dominio.usuario import Usuario
 
@@ -14,10 +14,10 @@ class Ambiente:
         self.usuarios: List[Usuario] = []
         self.dispositivos: List[Dispositivo] = []
 
-    def adicionar(self, item: Union[Usuario, Dispositivo]):
-        if isinstance(item, Usuario):
-            self.usuarios.append(item)
-        elif isinstance(item, Dispositivo):
-            self.dispositivos.append(item)
+    def adicionar(self, entidade: Union[Usuario, Dispositivo]):
+        if isinstance(entidade, Usuario):
+            self.usuarios.append(entidade)
+        elif isinstance(entidade, Dispositivo):
+            self.dispositivos.append(entidade)
         else:
-            raise ItemInvalido(item)
+            raise EntidadeInvalida(entidade)

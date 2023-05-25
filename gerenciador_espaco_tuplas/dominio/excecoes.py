@@ -11,8 +11,8 @@ class TamanhoMaximoNomeExcedido(Exception):
 
 
 @dataclass
-class ItemInvalido(Exception):
-    item: object
+class EntidadeInvalida(Exception):
+    entidade: object
 
     def __str__(self):
-        return f"Item {self.item} inválido"
+        return f"Item {self.entidade} inválido"
