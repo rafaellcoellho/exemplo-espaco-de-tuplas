@@ -33,4 +33,4 @@ def test_adicionar_entidade_invalida_ao_ambiente():
     entidade = object()
 
     with pytest.raises(EntidadeInvalida):
-        ambiente.adicionar(entidade=entidade)
+        ambiente.adicionar(entidade=entidade)  # type: ignore
