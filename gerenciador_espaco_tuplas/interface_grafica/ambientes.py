@@ -8,7 +8,7 @@ from gerenciador_espaco_tuplas.interface_grafica.janelas.ambiente import (
 
 class InterfaceGerenciadorDeAmbientes(tkinter.LabelFrame):
     def __init__(self, frame_pai: tkinter.Frame):
-        super().__init__(frame_pai, text="Gerenciador de Ambientes")
+        super().__init__(frame_pai, text="Ambientes")
 
         self.frame_gerenciador_ambientes: tkinter.Frame = tkinter.Frame(self)
         self.frame_gerenciador_ambientes.grid(row=0, column=0, padx=10, pady=10)
